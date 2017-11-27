@@ -32,7 +32,7 @@ catch(PDOException $e)
 }
 else echo "erreur";
 
-
+$req->closeCursor();
 ?>
                 
     </body>

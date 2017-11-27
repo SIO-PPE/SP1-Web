@@ -42,9 +42,24 @@
              {
                  echo '<td>'.$value2.'</td>';
              }
+             $req = $bdd->prepare('SELECT Numero_Agence FROM client where Numero_Client  = ?');
+             $req->execute(array($_POST['numC']));
+             
+             $agence;
+             while ($r = $req->fetch())
+             {
+                 $agence = $r[0];
+             }
+       
              ?><td>
-             <form name="x" action="editClient.php?numC=<?php echo$_POST['numC']?>" method="post">
+             <form name="postNumC" action="editClient.php?numC=<?php echo$_POST['numC']?>" method="post">
 				<input type="submit" value="Modifier"  >
+			
+			</form></td>
+			<td>
+             <form name="postAgence" action="visiteTec.php?numAgence=<?php echo$agence?> " method="post">
+				<input type="submit" value="AffecterVisite"  >
+				<input type="hidden" value="<?php echo $_POST['numC']?>" name="numC" />
 			
 			</form></td>
              
@@ -52,7 +67,7 @@
          echo '</table>';
          echo '<br />'.sizeof($result2).' lignes.';
          
-    }?>
+    }$req->closeCursor();?>
                 
     </body>
 </html>

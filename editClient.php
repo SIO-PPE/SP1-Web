@@ -18,7 +18,7 @@
         
    
        
-        if (isset($_GET['numC']) AND isset($_GET['numC']))  // Si le mot de passe est bon
+        if (isset($_GET['numC']))  // Si le mot de passe est bon
     {
         $req = $bdd->prepare('SELECT * FROM client where Numero_Client  = ?');
         $req->execute(array($_GET['numC']));
@@ -42,13 +42,14 @@
                  echo '<p> '.$key2.': <input type="text" name="'.$key2.'" value="'.$value2.'" /></p>';
              }
              
+             
              ?>       <p><input type="submit" value="OK"></p>
           </form>
              
        <?php  }
          echo '</table>';
          
-    } ?>
+    }  $req->closeCursor();?>
                 
     </body>
 </html>
