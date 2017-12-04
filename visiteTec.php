@@ -57,6 +57,7 @@
 					<input type="hidden" value="<?php echo $_POST['numC']?>" name="numC">
 					<input type="submit" value="Affecter Visite"  >
 			</form>
+			<br>
        <?php } 
          
          echo '<br />'.sizeof($result2).' lignes.';

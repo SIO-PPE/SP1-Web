@@ -27,10 +27,10 @@ if (isset($_POST['numC']) AND isset($_POST['numT'])){
     $numC = $_POST['numC'];
     $matriculeT = $_POST['numT'];
 
-    
+    echo  $_POST['numT']."   ".$_POST['numC']."  ".$_POST['Date_Visite']."   ".$_POST['Heure_Visite']."        ";
      try{   $req = $bdd->prepare("INSERT intervention SET Date_Visite = ?, Heure_Visite = ? ,MatriculeT = ?,Numero_Client = ?");   
-     $req->execute(array($_POST['Date_Visite'],$_POST['Heure_Visite'],$matriculeT,$numC));
-     echo $req->rowCount() . " client modifié avec succès";
+     $req->execute(array(date($_POST['Date_Visite']),$_POST['Heure_Visite'],$matriculeT,$numC));
+     echo $req->rowCount() . " intervention affecté avec succes";
     
 }
 
