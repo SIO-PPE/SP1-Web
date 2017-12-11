@@ -3,7 +3,7 @@
 require('FPDF.php');
 class PDF extends FPDF {
     
-    public function __construct($id, $date,$agence,$prenom,$nom,$code,$tec,$passage,$adresse) // Constructeur demandant 2 paramètres
+    public function __construct($id,$nom,$code,$tec,$passage,$adresse) // Constructeur demandant 2 paramètres
     {
         parent::__construct('P','mm','A4');
         parent::AddPage();
@@ -11,12 +11,12 @@ class PDF extends FPDF {
         parent::SetTextColor(0);
         
         parent::Text(8,38,'N° Intevention : '.$id);
-        parent::Text(8,43,'Date : '.$date);
-        parent::Text(8,48,'Agence : '.$agence);
-        parent::Text(120,38,utf8_decode($prenom).' '.utf8_decode($nom));
+        parent::Text(8,43,'Date : '.date("d/m/Y"));
+        //parent::Text(8,48,'Agence : '.);
+        parent::Text(120,38,utf8_decode($nom));
         parent::Text(120,43,utf8_decode($adresse));
         parent::Text(120,48,"codeApe : ".$code);
-        
+        /*
         parent::SetDrawColor(183); // Couleur du fond
         parent::SetFillColor(221); // Couleur des filets
         parent::SetTextColor(0); // Couleur du texte
@@ -36,11 +36,30 @@ class PDF extends FPDF {
         parent::MultiCell(10,8,$tec,1,'C');
 
         
-        
+        */
+        $position_entete = 58;
+        parent::SetDrawColor(183); // Couleur du fond
+        parent::SetFillColor(221); // Couleur des filets
+        parent::SetTextColor(0); // Couleur du texte
+        parent::SetY($position_entete);
+        parent::SetX(8);
+        parent::Cell(158,8,'Désignation',1,0,'L',1);
+        parent::SetX(166); // 8 + 96
+        parent::Cell(10,8,'Qté',1,0,'C',1);
+        parent::SetX(176); // 104 + 10
+        parent::Cell(24,8,'Net HT',1,0,'C',1);
+        parent::Ln(); // Retour à la ligne
         parent::Output();
     }
 
+    // Position de l'entête à 10mm des infos (48 + 10)
+
     
+    function entete_table($position_entete){
+        global $pdf;
+
+    }
+ 
     // Header
     function Header() {
         // Logo
