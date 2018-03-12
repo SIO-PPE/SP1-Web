@@ -40,8 +40,10 @@
              echo '</tr>';
              foreach ($value as $key2 => $value2)
              {
+      
                  echo '<td>'.$value2.'</td>';
              }
+   
              $req = $bdd->prepare('SELECT Numero_Agence FROM client where Numero_Client  = ?');
              $req->execute(array($_POST['numC']));
              
@@ -64,9 +66,48 @@
 			</form></td>
              
        <?php  }
-         echo '</table>';
-         echo '<br />'.sizeof($result2).' lignes.';
+
+         $req = $bdd->prepare('SELECT * FROM intervention where Numero_Client = ?');
+         $req->execute(array($_POST['numC']));
          
+         $result2 = array();
+         while ($result = $req->fetch(PDO::FETCH_ASSOC))
+         {
+             $result2[] = $result;
+         }
+         if(sizeof($result2) != '0'){
+             
+             echo 'Aucun technicien dans cette agence';
+             
+             echo '</table>';
+             echo '<br /> <h1>Planning Intervention</h1>';
+        
+         echo '<table border = 1>';
+         foreach ($result2 as $key => $value)
+         {
+             echo '<tr>';
+             foreach ($value as $key2 => $value2)
+             {
+                 echo '<th>'.$key2.'</th>';
+             }
+             
+             echo '</tr>';
+             foreach ($value as $key2 => $value2)
+             {
+             
+              
+                 if($key2 == 'MatriculeT'){
+                     $req = $bdd->prepare('SELECT NomT FROM technicien where MatriculeT = ?');
+                     $req->execute(array($value2));
+                     $value2 = '['.$value2.'].'.$req->fetch()[0];
+                     echo '<td>'.$value2.'</td>';
+                 }else    echo '<td>'.$value2.'</td>';
+                 
+             }
+             
+
+            }
+          }
     }$req->closeCursor();?>
                 
     </body>

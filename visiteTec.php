@@ -60,8 +60,10 @@
 			<br>
        <?php } 
          
-         echo '<br />'.sizeof($result2).' lignes.';
-         
+       if(sizeof($result2) == '0'){
+                       
+         echo 'Aucun technicien dans cette agence';
+       }
          $req->closeCursor();
         }
         
