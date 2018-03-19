@@ -2,8 +2,6 @@
 
 include ("connect_sql.php");
 
-// = new PDO("mysql:host=".HOST.";dbname=".DBNAME.";charset=utf8",LOGIN,MDP);
-
 
     function getRaisonClient($matricule,$bdd){
         

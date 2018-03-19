@@ -19,10 +19,8 @@ if (isset($_GET['numIntervention'])){
     //$c = getC();
     //echo $c;
     //var_dump($client);
-    $horairePassage = $donnees['Date_Visite'];
-    $horairePassage += ":";
-    $horairePassage += $donnees['Heure_Visite'];
-    $pdf = new PDF($numIntervention,$client,$donnees['MatriculeT'],$horairePassage,$client['Adresse']);
+
+   $pdf = new PDF($numIntervention,$client,$donnees['MatriculeT'],$donnees['Date_Visite'],$donnees['Heure_Visite'],$client['Adresse'],$bd);
     
 
 }
