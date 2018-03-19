@@ -1,25 +1,14 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
 
-    </head>
     <body>
     
         <?php
         require_once('/PDO/connect_sql.php');
-        try
-        {
-            $bdd = new PDO("mysql:host=".HOST.";dbname=".DBNAME.";charset=utf8",LOGIN,MDP);
-        }
-        catch(Exception $e)
-        {
-            die('Erreur : '.$e->getMessage());
-        }
+        require_once('/PDO/checklog.php');
+
         
     if (isset($_POST['numC']) AND !empty($_POST['numC'])) // Si le mot de passe est bon
     {
-        $req = $bdd->prepare('SELECT * FROM client where Numero_Client  = ?');
+        $req = $bd->prepare('SELECT * FROM client where Numero_Client  = ?');
         $req->execute(array($_POST['numC']));
         ?>
           <?php 
@@ -44,7 +33,7 @@
                  echo '<td>'.$value2.'</td>';
              }
    
-             $req = $bdd->prepare('SELECT Numero_Agence FROM client where Numero_Client  = ?');
+             $req = $bd->prepare('SELECT Numero_Agence FROM client where Numero_Client  = ?');
              $req->execute(array($_POST['numC']));
              
              $agence;
@@ -67,7 +56,7 @@
              
        <?php  }
 
-         $req = $bdd->prepare('SELECT * FROM intervention where Numero_Client = ?');
+       $req = $bd->prepare('SELECT * FROM intervention where Numero_Client = ?');
          $req->execute(array($_POST['numC']));
          
          $result2 = array();
@@ -77,7 +66,7 @@
          }
          if(sizeof($result2) != '0'){
              
-             echo 'Aucun technicien dans cette agence';
+            
              
              echo '</table>';
              echo '<br /> <h1>Planning Intervention</h1>';
@@ -97,7 +86,7 @@
              
               
                  if($key2 == 'MatriculeT'){
-                     $req = $bdd->prepare('SELECT NomT FROM technicien where MatriculeT = ?');
+                     $req = $bd->prepare('SELECT NomT FROM technicien where MatriculeT = ?');
                      $req->execute(array($value2));
                      $value2 = '['.$value2.'].'.$req->fetch()[0];
                      echo '<td>'.$value2.'</td>';
@@ -107,8 +96,8 @@
              
 
             }
-          }
-    }$req->closeCursor();?>
+         }$req->closeCursor();
+    }?>
                 
     </body>
 </html>

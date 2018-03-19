@@ -1,3 +1,4 @@
+
 <?php
 require('PDF.php');
 
@@ -17,9 +18,11 @@ if (isset($_GET['numIntervention'])){
     
     $client = getAllClient($donnees['Numero_Client'],$bd);
     //$c = getC();
-    //echo $c;
-    //var_dump($client);
 
+   
+
+    
+   
    $pdf = new PDF($numIntervention,$client,$donnees['MatriculeT'],$donnees['Date_Visite'],$donnees['Heure_Visite'],$client['Adresse'],$bd);
     
 

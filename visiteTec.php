@@ -1,26 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8" />
-</head>
-<body>
+
+
     
         <?php
         require_once ('/PDO/connect_sql.php');
-       $mysqli = new mysqli(HOST, LOGIN, MDP, DBNAME);
-      
-        try
-        {
-            $bdd = new PDO("mysql:host=".HOST.";dbname=".DBNAME.";charset=utf8",LOGIN,MDP);
-        }
-        catch(Exception $e)
-        {
-            die('Erreur : '.$e->getMessage());
-        }
+        require_once('/PDO/checklog.php');
+     
+
         
         if (isset($_GET['numAgence'])) // Si le mot de passe est bon
         {
-            $req = $bdd->prepare('SELECT * FROM technicien Where Numero_Agence = ?');
+            $req = $bd->prepare('SELECT * FROM technicien Where Numero_Agence = ?');
             $req->execute(array($_GET['numAgence']));
             $result2 = array();
             while ($result = $req->fetch(PDO::FETCH_ASSOC))

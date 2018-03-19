@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
 
-    </head>
-    <body>
     <?php
 require_once('/PDO/connect_sql.php');
-try
-{
-    $bdd = new PDO("mysql:host=".HOST.";dbname=".DBNAME.";charset=utf8",LOGIN,MDP);
-}
-catch(Exception $e)
-{
-    die('Erreur : '.$e->getMessage());
-}
+require_once('/PDO/checklog.php')
 ?>
-
+    <body>
 <p>
 	Numero Client
 </p>
@@ -29,7 +16,9 @@ catch(Exception $e)
 </form>
 
 <?php
- $req = $bdd->prepare('SELECT * FROM client');
+
+
+$req = $bd->prepare('SELECT * FROM client');
         $req->execute();
         ?>
           <?php 
@@ -66,7 +55,10 @@ catch(Exception $e)
 				<input type="submit" value="Acceder"  >
 			
 			</form></td>
-        <?php   }  $req->closeCursor();?>
+        <?php   }  $req->closeCursor();
+        
+        
+        ?>
 
                 
     </body>
