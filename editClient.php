@@ -7,7 +7,7 @@
 
    
        
-        if (isset($_GET['numC']))  
+    if (isset($_GET['numC']))  
         
     {
         $req = $bd->prepare('SELECT * FROM client where Numero_Client  = ?');

@@ -65,9 +65,6 @@
              $result2[] = $result;
          }
          if(sizeof($result2) != '0'){
-             
-            
-             
              echo '</table>';
              echo '<br /> <h1>Planning Intervention</h1>';
         
@@ -81,6 +78,7 @@
              }
              
              echo '</tr>';
+             
              foreach ($value as $key2 => $value2)
              {
              
@@ -88,14 +86,22 @@
                  if($key2 == 'MatriculeT'){
                      $req = $bd->prepare('SELECT NomT FROM technicien where MatriculeT = ?');
                      $req->execute(array($value2));
+                     $numI = $value2;
                      $value2 = '['.$value2.'].'.$req->fetch()[0];
                      echo '<td>'.$value2.'</td>';
                  }else    echo '<td>'.$value2.'</td>';
+               //  var_dump($value);
+             }      ?> <td>
+                 <form name="editI" action="editIntervention.php?numI=<?php echo $value['Numero_Intervention'];?>" method="post">
+                 <input type="submit" value="Modifier"  >
                  
-             }
+                 </form></td>
+                 <?php 
+                
              
 
             }
+            echo '</table>';
          }$req->closeCursor();
     }?>
                 

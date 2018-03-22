@@ -1,7 +1,7 @@
 
 <?php
 require_once('/PDO/connect_sql.php');
-  require_once('/PDO/checklog.php');
+require_once('/PDO/checklog.php');
 
 
 if (isset($_POST['Numero_Client']) AND isset($_POST['Raison_Sociale']) AND isset($_POST['Code_Ape']) AND isset($_POST['Adresse']) AND isset($_POST['Telephone_Client']) AND isset($_POST['Fax_Client']) AND isset($_POST['Email']) AND isset($_POST['Duree_Deplacement']) AND isset($_POST['Distance_KM']) AND isset($_POST['Numero_de_contrat']) AND isset($_POST['Numero_Agence']) ){  // si le mot de passe est bon
