@@ -10,7 +10,7 @@ class PDF extends FPDF {
         parent::SetFont('Helvetica','',11);
         parent::SetTextColor(0);
         
-        parent::Text(8,38,'N° Intevention : '.$id);
+        parent::Text(8,38,'N° Intervention : '.$id);
         parent::Text(8,43,'Date : '.date("d/m/Y"));
         //parent::Text(8,48,'Agence : '.);
         parent::Text(120,38,utf8_decode($client['Raison_Sociale']));
