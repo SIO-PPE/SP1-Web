@@ -95,7 +95,14 @@
                  <form name="editI" action="editIntervention.php?numI=<?php echo $value['Numero_Intervention'];?>" method="post">
                  <input type="submit" value="Modifier"  >
                  
-                 </form></td>
+                 <td>
+                 
+             
+<button><a href="/cashcash/pdf/interventation.php?numIntervention=<?php echo $value['Numero_Intervention'];?>">Generer PDF</a></button>
+
+         
+                 
+                 </td>
                  <?php 
                 
              
