@@ -7,9 +7,9 @@ echo '<p><i>Vous êtes ici</i> : <a href="./index.php">Index </a> --> Connexion';
 ?>
 <?php
 echo '<h1>Connexion</h1>';
-if ($matricule != 0) erreur(ERR_IS_CO);
+if ($matricule != 0) erreur(ERR_IS_CO); //Si un utilisateur est déja connecté
 
-if (!isset($_POST['nom'])) //On est dans la page de formulaire
+if (!isset($_POST['nom'])) //Si le formulaire n'a pas déja été remplie on affiche le formulaire
 {
     echo '<form method="post" action="connexion.php">
 	<fieldset>
@@ -25,10 +25,10 @@ if (!isset($_POST['nom'])) //On est dans la page de formulaire
 	</body>
 	</html>';
 }
-else
+else //Lors de la connexion
 {
     $message='';
-    if (empty($_POST['nom']) || empty($_POST['password']) ) //Oublie d'un champ
+    if (empty($_POST['nom']) || empty($_POST['password']) ) //Vérification des champs nom et password
     {
         $message = '<p>
 	Vous devez remplir tous les champs</p>

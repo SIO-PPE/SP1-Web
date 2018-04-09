@@ -17,11 +17,7 @@ if (isset($_GET['numIntervention'])){
     $donnees=$rep->fetch();
     
     $client = getAllClient($donnees['Numero_Client'],$bd);
-    //$c = getC();
 
-   
-
-    
    
    $pdf = new PDF($numIntervention,$client,$donnees['MatriculeT'],$donnees['Date_Visite'],$donnees['Heure_Visite'],$client['Adresse'],$bd);
     

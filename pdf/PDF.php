@@ -3,7 +3,7 @@
 require('FPDF.php');
 class PDF extends FPDF {
     
-    public function __construct($id,$client,$MatriculeT,$date,$heure,$adresse,$bd) // Constructeur demandant 2 paramètres
+    public function __construct($id,$client,$MatriculeT,$date,$heure,$adresse,$bd) // Constructeur du PDF
     {
         parent::__construct('P','mm','A4');
         parent::AddPage();
@@ -15,27 +15,6 @@ class PDF extends FPDF {
         //parent::Text(8,48,'Agence : '.);
         parent::Text(120,38,utf8_decode($client['Raison_Sociale']));
         parent::Text(120,48,"codeApe : ".$client['Code_Ape']);
-        /*
-        parent::SetDrawColor(183); // Couleur du fond
-        parent::SetFillColor(221); // Couleur des filets
-        parent::SetTextColor(0); // Couleur du texte
-        parent::SetY(66);
-        parent::SetX(8);
-        parent::Cell(50,8,'Date de passage ',1,0,'L',1);
-        parent::SetX(58); // 8 + 96
-        parent::Cell(50,8,'Technicien',1,0,'C',1);
-
-        parent::Ln(); // Retour à la ligne
-        
-        parent::SetY(66);
-        parent::SetX(8);
-        parent::MultiCell(158,8,utf8_decode($passage),1,'L');
-        parent::SetY(66);
-        parent::SetX(166);
-        parent::MultiCell(10,8,$tec,1,'C');
-
-        
-        */
         $position_entete = 58;
         parent::SetDrawColor(183); // Couleur du fond
         parent::SetFillColor(221); // Couleur des filets

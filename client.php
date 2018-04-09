@@ -5,8 +5,9 @@
         require_once('/PDO/checklog.php');
 
         
-    if (isset($_POST['numC']) AND !empty($_POST['numC'])) // Si le mot de passe est bon
+    if (isset($_POST['numC']) AND !empty($_POST['numC'])) //On vérifie l'envoie du formulaire
     {
+        //On affiche dans un tableau tout les Clients
         $req = $bd->prepare('SELECT * FROM client where Numero_Client  = ?');
         $req->execute(array($_POST['numC']));
         ?>
@@ -36,7 +37,7 @@
       
                  echo '<td>'.$value2.'</td>';
              }
-   
+   //On affiche les agences relative au Client
              $req = $bd->prepare('SELECT Numero_Agence FROM client where Numero_Client  = ?');
              $req->execute(array($_POST['numC']));
              
