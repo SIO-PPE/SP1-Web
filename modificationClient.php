@@ -22,6 +22,6 @@ else echo "erreur";
 
 $req->closeCursor();
 ?>
-                
+       </div>            
     </body>
 </html>

@@ -27,6 +27,6 @@
         $row = $res->fetch_assoc();
         echo $row['_p_out'];
         ?>
-                
+         </div>          
     </body>
 </html>

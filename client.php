@@ -1,5 +1,4 @@
 
-    <body>
     
         <?php
         require_once('/PDO/connect_sql.php');
@@ -17,7 +16,12 @@
          {
              $result2[] = $result;
          }
-         echo '<table border = 1>';
+         
+         echo '<div class="row">';
+         echo '<div class="col-md-6">';
+        
+         echo '<table class="table">';
+         echo '<thead>';
          foreach ($result2 as $key => $value)
          {
              echo '<tr>';
@@ -65,10 +69,12 @@
              $result2[] = $result;
          }
          if(sizeof($result2) != '0'){
-             echo '</table>';
+             echo '</table>     </div>
+    		</div>';
+             
              echo '<br /> <h1>Planning Intervention</h1>';
         
-         echo '<table border = 1>';
+         echo '<table class="table">';
          foreach ($result2 as $key => $value)
          {
              echo '<tr>';
@@ -108,9 +114,10 @@
              
 
             }
-            echo '</table>';
+            echo ' </thead> </table>';
          }$req->closeCursor();
     }?>
-                
+
+               </div> 
     </body>
 </html>

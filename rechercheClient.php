@@ -27,7 +27,12 @@ $req = $bd->prepare('SELECT * FROM client');
          {
              $result2[] = $result;
          }
-         echo '<table border = 1>';
+         
+         echo '<div class="row">';
+         echo '<div class="col-md-6">';
+         
+         echo '<table class="table">';
+         echo '<thead>';
          foreach ($result2 as $key => $value)
          {
              echo '<tr>';
@@ -55,11 +60,13 @@ $req = $bd->prepare('SELECT * FROM client');
 				<input type="submit" value="Acceder"  >
 			
 			</form></td>
+		
         <?php   }  $req->closeCursor();
         
         
-        ?>
-
-                
+        ?> 	</div>
+ 	</div>
+                	</table>
+                	</div>
     </body>
 </html>       

@@ -1,5 +1,4 @@
 
-    <body>
     
         <?php
         require_once('/PDO/connect_sql.php');
