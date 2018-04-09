@@ -3,10 +3,11 @@ session_start();
 $titre="Connexion";
 include("includes/debut.php");
 require('PDO/dbUtils.php');
-echo '<p><i>Vous êtes ici</i> : <a href="./index.php">Index </a> --> Connexion';
-?>
+?>   <div class="jumbotron">
+       
+   
 <?php
-echo '<h1>Connexion</h1>';
+
 if ($matricule != 0) erreur(ERR_IS_CO); //Si un utilisateur est déja connecté
 
 if (!isset($_POST['nom'])) //Si le formulaire n'a pas déja été remplie on affiche le formulaire
@@ -66,4 +67,7 @@ else //Lors de la connexion
     echo $message.'</div></body></html>';
     
 }
-?>
+?>   </div>
+               </div> 
+    </body>
+</html>

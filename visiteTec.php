@@ -19,7 +19,11 @@
             
             foreach ($result2 as $key => $value)
             {
-                echo '<table border = 1>';
+                echo '<div class="row">';
+                echo '<div class="col-md-6">';
+                
+                echo '<table class="table">';
+                echo '<thead>';
                 echo '<tr>';
                 foreach ($value as $key2 => $value2)
                 {
@@ -34,7 +38,7 @@
                 }
                 
                 
-                echo '</table>';
+                echo ' </thead></table></div>  </div>  ';
             
                 ?>
    
