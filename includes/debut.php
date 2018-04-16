@@ -12,7 +12,7 @@ echo (!empty($titre))?'<title>'.$titre.'</title>':'<title> CASHCASH </title>';
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="jumbotron text-center">
+<div class="jumbotron text-center" onclick="location.href='/cashcash/';" style="cursor:pointer;"> 
   <h1>CashCash</h1>
 </div>
 <?php
@@ -29,4 +29,4 @@ include("./includes/constants.php");
 
 ?>
 
-<div class="container">
+<div id ="cont" class="container">

@@ -12,7 +12,8 @@ if ($matricule != 0) erreur(ERR_IS_CO); //Si un utilisateur est déja connecté
 
 if (!isset($_POST['nom'])) //Si le formulaire n'a pas déja été remplie on affiche le formulaire
 {
-    echo '<form method="post" action="connexion.php">
+/*
+ *     echo '<form method="post" action="connexion.php">
 	<fieldset>
 	<legend>Connexion</legend>
 	<p>
@@ -21,10 +22,23 @@ if (!isset($_POST['nom'])) //Si le formulaire n'a pas déja été remplie on affich
 	</p>
 	</fieldset>
 	<p><input type="submit" value="Connexion" /></p></form>
-
 	</div>
 	</body>
 	</html>';
+ */
+?>
+<fieldset>
+	<legend>Connexion</legend>
+<form action="connexion.php" method="post">
+  Name<br>
+  <input type="text" name="nom"><br>
+   password:<br>
+  <input type="password" name="password"> 
+  	</fieldset>
+  	<br>
+<input type="submit" value="Valider" />
+</form>
+<?php 
 }
 else //Lors de la connexion
 {
