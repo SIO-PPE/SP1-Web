@@ -56,6 +56,8 @@ $req = $bd->prepare('SELECT * FROM technicien');
                  
              }
              
+             echo '<td>caca</td>';
+             
              
              ?>
 		
