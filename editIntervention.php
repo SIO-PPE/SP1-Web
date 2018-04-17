@@ -39,12 +39,12 @@
        $req->closeCursor();
          echo '</table>';
          
-    }else if (isset($_POST['Numero_Intervention']) AND isset($_POST['Date_Visite']) AND isset($_POST['Heure_Visite']) AND isset($_POST['MatriculeT']) AND isset($_POST['Numero_Client']) ){  // si le mot de passe est bon
+    }else if (isset($_POST['Numero_Intervention']) AND isset($_POST['Date_Visite']) AND isset($_POST['Heure_Visite']) AND isset($_POST['MatriculeT']) AND isset($_POST['Numero_Client']) AND isset($_POST['Commentaire']) AND isset($_POST['Effectue'])){  // si le mot de passe est bon
         $numI = $_POST['Numero_Intervention'];
         try{   
-            $req = $bd->prepare("UPDATE intervention SET Numero_Intervention= ? ,Date_Visite= ? ,Heure_Visite=?,MatriculeT=?,Numero_Client=? WHERE Numero_Intervention = '$numI'");
+            $req = $bd->prepare("UPDATE intervention SET Numero_Intervention= ? ,Date_Visite= ? ,Heure_Visite=?,MatriculeT=?,Numero_Client=?, 	Commentaire = ?, Effectue = ? WHERE Numero_Intervention = '$numI'");
         
-        $req->execute(array($_POST['Numero_Intervention'],$_POST['Date_Visite'],$_POST['Heure_Visite'],$_POST['MatriculeT'],$_POST['Numero_Client']));
+        $req->execute(array($_POST['Numero_Intervention'],$_POST['Date_Visite'],$_POST['Heure_Visite'],$_POST['MatriculeT'],$_POST['Numero_Client'],$_POST['Commentaire'],$_POST['Effectue']));
         echo $req->rowCount() . " Intervention modifié avec succès";
         echo "<br><a href='index.php'>Retour menu</a>";
         }
