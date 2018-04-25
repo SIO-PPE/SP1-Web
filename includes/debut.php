@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
+
+	<meta charset="UTF-8">
 <?php
-//Si le titre est indiqué, on l'affiche entre les balises <title>
+//Si le titre est indiquï¿½, on l'affiche entre les balises <title>
+
 echo (!empty($titre))?'<title>'.$titre.'</title>':'<title> CASHCASH </title>';
-header("charset: utf8-8");
+
 
 //Attribution des variables de session
 $role=(isset($_SESSION['role']))?$_SESSION['role']:'';
 $matricule=(isset($_SESSION['matricule']))?(int) $_SESSION['matricule']:0;
 $nom=(isset($_SESSION['nom']))?$_SESSION['nom']:'';
 ?>
-<meta>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="./includes/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

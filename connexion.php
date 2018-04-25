@@ -3,14 +3,14 @@ session_start();
 $titre="Connexion";
 include("includes/debut.php");
 require('PDO/dbUtils.php');
-?>   <div class="jumbotron">
+?> 
        
    
 <?php
 
-if ($matricule != 0) erreur(ERR_IS_CO); //Si un utilisateur est déja connecté
+if ($matricule != 0) erreur(ERR_IS_CO); //Si un utilisateur est dï¿½ja connectï¿½
 
-if (!isset($_POST['nom'])) //Si le formulaire n'a pas déja été remplie on affiche le formulaire
+if (!isset($_POST['nom'])) //Si le formulaire n'a pas dï¿½ja ï¿½tï¿½ remplie on affiche le formulaire
 {
 /*
  *     echo '<form method="post" action="connexion.php">
@@ -28,22 +28,23 @@ if (!isset($_POST['nom'])) //Si le formulaire n'a pas déja été remplie on affich
  */
 ?>
 <fieldset>
-	<legend>Connexion</legend>
-<form action="connexion.php" method="post">
-  Name<br>
-  <input type="text" name="nom"><br>
-   password:<br>
-  <input type="password" name="password"> 
-  	</fieldset>
-  	<br>
-<input type="submit" value="Valider" />
+	<legend>Identifiez-vous</legend>
+<form class="form-signin" action="connexion.php" method="post">
+
+<label for="nom" class="sr-only">Nom</label>
+      <input type="text" id="nom" class="form-control" placeholder="Nom" name ="nom" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password"  required>
+
+<button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
 </form>
+ 	</fieldset>
 <?php 
 }
 else //Lors de la connexion
 {
     $message='';
-    if (empty($_POST['nom']) || empty($_POST['password']) ) //Vérification des champs nom et password
+    if (empty($_POST['nom']) || empty($_POST['password']) ) //Vï¿½rification des champs nom et password
     {
         $message = '<p>
 	Vous devez remplir tous les champs</p>
@@ -63,25 +64,24 @@ else //Lors de la connexion
             $_SESSION['role'] = $data['role'];
             $_SESSION['matricule'] = $data['matricule'];
             $message = '<p>Bienvenue '.$data['nom'].',
-			vous êtes connecté!</p>
+			vous Ãªtes connectÃ© !</p>
 			<p>Cliquez <a href="./index.php">ici</a>
-			pour revenir à la page d accueil</p>';
+			pour revenir Ã  la page d accueil</p>';
         
         }
         else // Acces pas OK !
         {
             $message = '<p>Une erreur s\'est produite.<br /> Le mot de passe ou le pseudo
-            entré n\'est pas correcte.</p><p>Cliquez <a href="./connexion.php">ici</a>
-	    pour revenir à la page précédente
+            entrÃ© n\'est pas correcte.</p><p>Cliquez <a href="./connexion.php">ici</a>
+	    pour revenir Ã  la page prÃ©cÃ©dente
 	    <br /><br />Cliquez <a href="./index.php">ici</a>
-	    pour revenir à la page d accueil</p>';
+	    pour revenir Ã  la page d accueil</p>';
         }
         $query->CloseCursor();
     }
     echo $message.'</div></body></html>';
     
 }
-?>   </div>
-               </div> 
+?>   
     </body>
 </html>

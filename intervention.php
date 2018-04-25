@@ -12,8 +12,8 @@
 <form action="intervention.php" method="post">
 <p>
 <input type="number" name="numT" />
-<input type="date" name="trier"><br>
-<input type="submit" value="Valider" />
+<input type="date" name="trier">
+<input class="btn btn-primary" type="submit" value="Valider" />
 </p>
 </form>    
 
@@ -71,13 +71,15 @@ else{
                  }else    echo '<td>'.$value2.'</td>';
             
              }      ?> <td>
-                 <form name="editI" action="editIntervention.php?numI=<?php echo $value['Numero_Intervention'];?>" method="post">
-                 <input type="submit" value="Modifier"  >
-                 
+                 <form  name="editI" action="editIntervention.php?numI=<?php echo $value['Numero_Intervention'];?>" method="post">
+                 <input class="btn btn-default" type="submit" value="Modifier"  >
+                 </form>
                  <td>
                  
              
-<button><a href="/cashcash/pdf/interventation.php?numIntervention=<?php echo $value['Numero_Intervention'];?>">Generer PDF</a></button>
+
+<a class="btn btn-success" href="/cashcash/pdf/interventation.php?numIntervention=<?php echo $value['Numero_Intervention'];?>">Générer PDF</a>
+
 
          
                  

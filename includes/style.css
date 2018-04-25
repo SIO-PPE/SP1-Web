@@ -6,6 +6,13 @@
 
 }
 
+fieldset {
+   
+ padding-left: 30%;
+  
+ width: 75%;
+}
+
 .element
 {
     margin: 10px;

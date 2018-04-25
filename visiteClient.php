@@ -12,9 +12,10 @@ if (isset($_POST['numC']) AND isset($_POST['numT'])){
     
   
     try{   
-        $req = $bd->prepare("INSERT intervention SET Date_Visite = ?, Heure_Visite = ? ,MatriculeT = ?,Numero_Client = ?");   
+        $req = $bd->prepare("INSERT intervention SET Date_Visite = ?, Heure_Visite = ? ,MatriculeT = ?,Numero_Client = ?, Commentaire = '', Effectue = 0");   
      $req->execute(array(date($_POST['Date_Visite']),$_POST['Heure_Visite'],$matriculeT,$numC));
-     echo $req->rowCount() . " intervention affect� avec succes <br>";
+     echo $req->rowCount() . " intervention affecté avec succes  <br>";
+     echo "pour ".$_POST['Date_Visite']." à ".$_POST['Heure_Visite'];
        
        
     $req = $bd->prepare('SELECT Numero_Intervention FROM intervention where Date_Visite = ? and  Heure_Visite = ? and MatriculeT = ? and Numero_Client = ?');

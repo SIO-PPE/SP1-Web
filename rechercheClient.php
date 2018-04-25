@@ -14,7 +14,7 @@ require_once('/PDO/checklog.php')
 <input type="submit" value="Valider" />
 </p>
 </form>
-
+<script>document.getElementById("cont").className = "";</script>
 <?php
 
 

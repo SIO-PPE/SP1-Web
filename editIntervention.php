@@ -45,7 +45,7 @@
             $req = $bd->prepare("UPDATE intervention SET Numero_Intervention= ? ,Date_Visite= ? ,Heure_Visite=?,MatriculeT=?,Numero_Client=?, 	Commentaire = ?, Effectue = ? WHERE Numero_Intervention = '$numI'");
         
         $req->execute(array($_POST['Numero_Intervention'],$_POST['Date_Visite'],$_POST['Heure_Visite'],$_POST['MatriculeT'],$_POST['Numero_Client'],$_POST['Commentaire'],$_POST['Effectue']));
-        echo $req->rowCount() . " Intervention modifiÈ avec succËs";
+        echo $req->rowCount() . " Intervention modifi√© avec succ√®s";
         echo "<br><a href='index.php'>Retour menu</a>";
         }
         catch(PDOException $e)
