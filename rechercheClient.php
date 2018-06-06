@@ -16,7 +16,7 @@ require_once('/PDO/checklog.php')
 </form>
 <script>document.getElementById("cont").className = "";</script>
 <?php
-
+//Affichages de tout les clients
 
 $req = $bd->prepare('SELECT * FROM client');
         $req->execute();

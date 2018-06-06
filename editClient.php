@@ -9,6 +9,8 @@
     if (isset($_GET['numC']))  
         
     {
+        
+        //affichage des informations du client
         $req = $bd->prepare('SELECT * FROM client where Numero_Client  = ?');
         $req->execute(array($_GET['numC']));
         ?>

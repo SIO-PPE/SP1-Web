@@ -51,6 +51,7 @@
              
               }
 
+              //On affiche les interventions en cours par rapport au client
        $req = $bd->prepare('SELECT * FROM intervention where Numero_Client = ?');
          $req->execute(array($_POST['numC']));
          

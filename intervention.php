@@ -20,7 +20,7 @@
 <script>document.getElementById("cont").className = "";</script>
 
   <?php
-
+//Check des roles
 if($role == "TECHNICIEN"){
     $req = $bd->prepare('SELECT * FROM intervention,client where MatriculeT = ? and intervention.Numero_Client = client.Numero_Client ORDER BY client.Distance_KM ASC ');
     $req->execute(array($matricule));

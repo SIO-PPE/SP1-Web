@@ -57,7 +57,7 @@ else //Lors de la connexion
         $query->bindValue(':nom',$_POST['nom'], PDO::PARAM_STR);
         $query->execute();
         $data=$query->fetch();
-
+    //verification du mdp entré
         if (($data['password']) == sha1($_POST['password'])) 
         {
             $_SESSION['nom'] = $data['nom'];
